@@ -6,7 +6,7 @@ require 'active_support'
 
 require_relative '../api_operations'
 
-module XenditRuby
+module Xendit
   class Invoice
     class << self
       def get(invoice_id)
@@ -14,7 +14,7 @@ module XenditRuby
         raise ArgumentError, 'invoice_id is required and should be a string' \
             if invoice_id.blank? || !invoice_id.is_a?(String)
 
-        resp = XenditRuby::ApiOperations.get "v2/invoices/#{invoice_id}"
+        resp = Xendit::ApiOperations.get "v2/invoices/#{invoice_id}"
         JSON.parse resp.body
       end
     end

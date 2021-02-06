@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/xendit_ruby/version'
+require_relative 'lib/xendit/version'
 
 Gem::Specification.new do |spec|
-  spec.name    = 'xendit-ruby'
-  spec.version = XenditRuby::VERSION
+  spec.name    = 'xendit'
+  spec.version = Xendit::VERSION
 
   spec.summary = 'Xendit Ruby API client library'
 
@@ -22,5 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance', '~> 1.9'
 
   # Includes `examples` and `spec` to allow external adapter gems to run Faraday unit and integration tests
-  spec.files = Dir['CHANGELOG.md', '{examples,lib,spec}/**/*', 'LICENSE.md', 'README.md']
+  spec.files = Dir['README.md', 'lib/**/*.rb',
+                   'xendit.gemspec',
+                   'Gemfile']
 end

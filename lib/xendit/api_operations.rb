@@ -4,7 +4,7 @@ require 'faraday'
 require 'json'
 require 'active_support'
 
-module XenditRuby
+module Xendit
   class ApiOperations
     class << self
       def get(url, params: nil)
@@ -16,10 +16,10 @@ module XenditRuby
 
       def create_connection
         Faraday.new(
-          url: XenditRuby.base_url,
+          url: Xendit.base_url,
           headers: {'Content-Type' => 'application/json'}
         ) do |conn|
-          conn.basic_auth(XenditRuby.api_key, '')
+          conn.basic_auth(Xendit.api_key, '')
         end
       end
     end
