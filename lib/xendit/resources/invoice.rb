@@ -5,6 +5,7 @@ require 'json'
 require 'active_support'
 
 require_relative '../api_operations'
+require_relative '../response'
 
 module Xendit
   class Invoice
@@ -15,6 +16,8 @@ module Xendit
             if invoice_id.blank? || !invoice_id.is_a?(String)
 
         resp = Xendit::ApiOperations.get "v2/invoices/#{invoice_id}"
+        Xendit::Response.handle_error_response resp
+
         JSON.parse resp.body
       end
     end
