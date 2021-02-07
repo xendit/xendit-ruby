@@ -75,6 +75,17 @@ module Xendit
         JSON.parse resp.body
       end
       # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+
+      def expire(invoice_id)
+        # validation
+        raise ArgumentError, 'invoice_id is required and should be a string' \
+            if invoice_id.blank? || !invoice_id.is_a?(String)
+  
+        resp = Xendit::ApiOperations.post "invoices/#{invoice_id}/expire!"
+        Xendit::Response.handle_error_response resp
+  
+        JSON.parse resp.body
+      end
     end
   end
 end
