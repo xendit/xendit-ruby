@@ -12,6 +12,11 @@ module Xendit
         conn.get url, params
       end
 
+      def post(url, **params)
+        conn = create_connection
+        conn.post url, JSON.generate(params)
+      end
+
       private
 
       def create_connection
