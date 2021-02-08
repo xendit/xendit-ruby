@@ -7,7 +7,7 @@ require 'active_support'
 module Xendit
   class ApiOperations
     class << self
-      def get(url, params: nil)
+      def get(url, params = nil)
         conn = create_connection
         conn.get url, params
       end
