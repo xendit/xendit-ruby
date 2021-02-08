@@ -24,7 +24,7 @@ begin
   puts "\nExpired Invoice::"
   puts expired_invoice
 
-  # get all invoice
+  # get all invoices
   filter_params = {
     limit: 2
   }

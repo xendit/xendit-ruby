@@ -2,8 +2,7 @@
 
 require_relative '../lib/xendit' # require 'xendit'
 
-Xendit.api_key = 'xnd_development_32AzMZroPlqOETU2ETFSe5ft9y8O6dIZxJ97kOmuceay2rDuguS2O4QOfB8FVE'
-# Xendit.api_key = 'your_api_key'
+Xendit.api_key = 'your_api_key'
 
 # environment variables
 puts "\nXendit API Key"
