@@ -2,7 +2,6 @@
 
 require 'faraday'
 require 'json'
-require 'active_support'
 
 module Xendit
   class ApiOperations
