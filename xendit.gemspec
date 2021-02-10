@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.9'
   spec.add_development_dependency 'rubocop-performance', '~> 1.9'
 
+  spec.add_development_dependency 'rspec', '~> 3.6'
+
   # Includes `examples` and `spec` to allow external adapter gems to run Faraday unit and integration tests
   spec.files = Dir['README.md', 'lib/**/*.rb',
                    'xendit.gemspec',
