@@ -11,11 +11,32 @@ describe Xendit::Response do
                      })
     end
 
+    let(:invalid_response) do
+      OpenStruct.new({
+                       invalid_status: 200,
+                       invalid_body: '{"id":"1273018302173","status":"PENDING"}'
+                     })
+    end
+
     let(:valid_response) do
       OpenStruct.new({
                        status: 200,
                        body: '{"id":"1273018302173","status":"PENDING"}'
                      })
+    end
+
+    context 'given no response' do
+      it 'should raise argument error' do
+        expect(-> { described_class.handle_error_response }).
+          to raise_error(ArgumentError)
+      end
+    end
+
+    context 'given an invalid response' do
+      it 'should raise argument error' do
+        expect(-> { described_class.handle_error_response(invalid_response) }).
+          to raise_error(ArgumentError)
+      end
     end
 
     context 'given a valid response' do
