@@ -15,10 +15,11 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.5'
 
-  # Includes `examples` and `spec` to allow external adapter gems to run Faraday unit and integration tests
   spec.files = Dir['README.md', '{examples,lib,spec}/**/*.rb',
                    'xendit.gemspec',
                    'Gemfile']
+
+  spec.executables << 'xendit'
 
   spec.add_dependency 'faraday', '~> 1.3'
 
