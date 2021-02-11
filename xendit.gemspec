@@ -17,11 +17,13 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['README.md', '{examples,lib,spec}/**/*.rb',
                    'xendit.gemspec',
-                   'Gemfile']
+                   'Gemfile', 'Rakefile']
 
   spec.executables << 'xendit'
 
   spec.add_dependency 'faraday', '~> 1.3'
+
+  spec.add_development_dependency 'rake', '~> 13.0'
 
   spec.add_development_dependency 'rubocop', '~> 1.9'
   spec.add_development_dependency 'rubocop-performance', '~> 1.9'
