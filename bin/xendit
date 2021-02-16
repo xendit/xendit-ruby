@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'xendit'
+
+puts Xendit.api_key = ARGV[0]
+puts Xendit.base_url
+
+puts Xendit::Invoice.get ARGV[1]
