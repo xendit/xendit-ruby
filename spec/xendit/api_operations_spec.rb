@@ -2,7 +2,7 @@
 
 require 'xendit/api_operations'
 
-describe Xendit::ApiOperations do
+describe Xendit::APIOperations do
   describe '.create_connection' do
     it 'should returns a connection object' do
       conn = described_class.send(:create_connection)
