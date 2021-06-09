@@ -41,7 +41,7 @@ describe Xendit::Invoice do
       end
 
       it 'should return the created invoice object' do
-        allow(Xendit::ApiOperations).to receive(:post).with(url, invoice_params).and_return(api_operation_response)
+        allow(Xendit::APIOperations).to receive(:post).with(url, invoice_params).and_return(api_operation_response)
 
         result = described_class.create invoice_params
         expect(result).to eq(invoice)
@@ -73,7 +73,7 @@ describe Xendit::Invoice do
     end
 
     it 'should return a invoice object' do
-      allow(Xendit::ApiOperations).to receive(:get).with(url).and_return(api_operation_response)
+      allow(Xendit::APIOperations).to receive(:get).with(url).and_return(api_operation_response)
 
       result = described_class.get invoice['id']
       expect(result).to eq(invoice)
@@ -90,7 +90,7 @@ describe Xendit::Invoice do
     end
 
     it 'should return invoice object(s)' do
-      allow(Xendit::ApiOperations).to receive(:get).with(url, nil).and_return(api_operation_response)
+      allow(Xendit::APIOperations).to receive(:get).with(url, nil).and_return(api_operation_response)
 
       result = described_class.get_all
       expect(result).to eq(invoice)
@@ -108,7 +108,7 @@ describe Xendit::Invoice do
     end
 
     it 'should return the expired invoice object' do
-      allow(Xendit::ApiOperations).to receive(:post).with(url).and_return(api_operation_response)
+      allow(Xendit::APIOperations).to receive(:post).with(url).and_return(api_operation_response)
 
       result = described_class.expire invoice['id']
       expect(result).to eq(expired_invoice)

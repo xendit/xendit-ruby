@@ -14,7 +14,7 @@ module Xendit
         raise ArgumentError, 'invoice_id is required and should be a string' \
             if invoice_id.nil? || !invoice_id.is_a?(String)
 
-        resp = Xendit::ApiOperations.get "v2/invoices/#{invoice_id}"
+        resp = Xendit::APIOperations.get "v2/invoices/#{invoice_id}"
         Xendit::Response.handle_error_response resp
 
         JSON.parse resp.body
@@ -39,7 +39,7 @@ module Xendit
                (!invoice_params[:amount].is_a?(Integer) &&
                !invoice_params[:amount].is_a?(Float))
 
-        resp = Xendit::ApiOperations.post('v2/invoices', **invoice_params)
+        resp = Xendit::APIOperations.post('v2/invoices', **invoice_params)
         Xendit::Response.handle_error_response resp
 
         JSON.parse resp.body
@@ -51,14 +51,14 @@ module Xendit
         raise ArgumentError, 'invoice_id is required and should be a string' \
             if invoice_id.nil? || !invoice_id.is_a?(String)
 
-        resp = Xendit::ApiOperations.post "invoices/#{invoice_id}/expire!"
+        resp = Xendit::APIOperations.post "invoices/#{invoice_id}/expire!"
         Xendit::Response.handle_error_response resp
 
         JSON.parse resp.body
       end
 
       def get_all(filter_params = nil)
-        resp = Xendit::ApiOperations.get('v2/invoices', filter_params)
+        resp = Xendit::APIOperations.get('v2/invoices', filter_params)
         Xendit::Response.handle_error_response resp
 
         JSON.parse resp.body

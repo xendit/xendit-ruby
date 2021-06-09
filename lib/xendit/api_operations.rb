@@ -4,7 +4,7 @@ require 'faraday'
 require 'json'
 
 module Xendit
-  class ApiOperations
+  class APIOperations
     class << self
       def get(url, params = nil)
         conn = create_connection
