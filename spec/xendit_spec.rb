@@ -3,10 +3,15 @@
 require 'xendit'
 
 describe Xendit do
+  after do
+    Xendit.api_key = nil
+    Xendit.base_url = nil
+  end
+
   describe 'API key' do
     let(:api_key) { 'this_is_my_api_key' }
 
-    context 'given no API URL provided' do
+    context 'given no API key provided' do
       it 'should return nil' do
         expect(described_class.api_key).to be_nil
       end
