@@ -23,7 +23,7 @@ module Xendit
           url: Xendit.base_url,
           headers: {'Content-Type' => 'application/json'}
         ) do |conn|
-          conn.basic_auth(Xendit.api_key, '')
+          conn.request(:basic_auth, Xendit.api_key, '')
         end
       end
     end
