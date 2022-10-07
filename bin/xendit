@@ -7,3 +7,4 @@ puts Xendit.api_key = ARGV[0]
 puts Xendit.base_url
 
 puts Xendit::Invoice.get ARGV[1]
+# puts Xendit::Balance.get ARGV[2]
