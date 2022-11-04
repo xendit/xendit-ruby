@@ -10,6 +10,7 @@ This library is the abstraction of Xendit API for access from applications writt
 - [Usage](#usage)
   - [Invoice Service](#invoice-service)
   - [Refund Service](#refund-service)
+  - [Balance Service](#refund-service)
 
 <!-- tocstop -->
 
@@ -120,4 +121,18 @@ Get an Refund ID
 ```ruby
 # get an invoice
 invoice = Xendit::Refund.get created_refund['id']
+```
+
+### Balance Service
+
+Refer to [Xendit API Reference](https://developers.xendit.co/api-reference/#balances) for more info about methods' parameters
+
+Get Balance Service
+
+```ruby
+# Check your current balance
+  balance = Xendit::Balance.get_balance
+
+  puts "\nBalance::"
+  puts balance
 ```
