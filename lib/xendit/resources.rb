@@ -2,4 +2,4 @@
 
 require_relative 'resources/invoice'
 require_relative 'resources/balance'
-require_relative 'resources/credit_cards'
+require_relative 'resources/refund'

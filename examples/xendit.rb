@@ -2,7 +2,13 @@
 
 require_relative '../lib/xendit' # require 'xendit'
 
-Xendit.api_key = 'your api key'
+# Add api key
+# Linux and MacOs:
+# export API_KEY="API_KEY"
+# Windows:
+# set API_KEY="your_api_key"
+# 
+Xendit.api_key = ENV['API_KEY']
 
 # environment variables
 puts "\nXendit API Key"
