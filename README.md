@@ -8,7 +8,9 @@ This library is the abstraction of Xendit API for access from applications writt
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-  * [Invoice Service](#invoice-service)
+  - [Invoice Service](#invoice-service)
+  - [Refund Service](#refund-service)
+  - [Balance Service](#refund-service)
 
 <!-- tocstop -->
 
@@ -17,18 +19,25 @@ This library is the abstraction of Xendit API for access from applications writt
 Please check [Xendit API Reference](https://xendit.github.io/apireference/).
 
 ## Requirements
+
 - Ruby 2.5+.
 
 ## Installation
+
 Add this line to your application’s Gemfile:
+
 ```bash
 gem 'xendit'
 ```
+
 And then execute:
+
 ```bash
 $ bundle
 ```
+
 Access the library in Ruby/Rails project:
+
 ```ruby
 require 'xendit'
 ```
@@ -50,6 +59,7 @@ Xendit.api_key = 'xnd_...'
 Refer to [Xendit API Reference](https://xendit.github.io/apireference/#invoices) for more info about methods' parameters
 
 Create an invoice
+
 ```ruby
 # setup invoice details
 invoice_params = {
@@ -63,12 +73,14 @@ created_invoice = Xendit::Invoice.create invoice_params
 ```
 
 Get an invoice
+
 ```ruby
 # get an invoice
 invoice = Xendit::Invoice.get '5efda8a20425db620ec35f43'
 ```
 
 Get all invoices
+
 ```ruby
 # setup filters
 filter_params = {
@@ -79,7 +91,48 @@ invoices = Xendit::Invoice.get_all filter_params
 ```
 
 Expire an invoice
+
 ```ruby
 # expire an invoice
 expired_invoice = Xendit::Invoice.expire '5efda8a20425db620ec35f43'
+```
+
+### Refund Service
+
+Refer to [Xendit API Reference](https://developers.xendit.co/api-reference/#refunds) for more info about methods' parameters
+
+Create an refunds
+
+```ruby
+ # create refund transaction
+  refund_params = {
+    invoice_id: '63652c5aeb10cf6e95053d1a',
+    reference_id: 'Hello Refunds',
+    reason: 'CANCELLATION',
+    currency: 'PHP',
+    amount: 10_000,
+  }
+  created_refund = Xendit::Refund.create refund_params
+  puts created_refund
+```
+
+Get an Refund ID
+
+```ruby
+# get an invoice
+invoice = Xendit::Refund.get created_refund['id']
+```
+
+### Balance Service
+
+Refer to [Xendit API Reference](https://developers.xendit.co/api-reference/#balances) for more info about methods' parameters
+
+Get Balance Service
+
+```ruby
+# Check your current balance
+  balance = Xendit::Balance.get_balance
+
+  puts "\nBalance::"
+  puts balance
 ```

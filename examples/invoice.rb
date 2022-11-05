@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require_relative './xendit'
+require 'xendit'
+require 'net/http'
+require 'uri'
+require 'json'
 
 begin
   # create invoice
@@ -8,11 +12,12 @@ begin
     external_id: 'demo_147580196270',
     payer_email: 'sample_email@xendit.co',
     description: 'Trip to Bali',
-    amount: 10_000_000
+    amount: 10_000
   }
   created_invoice = Xendit::Invoice.create invoice_params
   puts "\nCreated Invoice::"
   puts created_invoice
+
 
   # get invoice
   invoice = Xendit::Invoice.get created_invoice['id']
@@ -20,9 +25,9 @@ begin
   puts invoice
 
   # expire invoice
-  expired_invoice = Xendit::Invoice.expire created_invoice['id']
-  puts "\nExpired Invoice::"
-  puts expired_invoice
+  # expired_invoice = Xendit::Invoice.expire created_invoice['id']
+  # puts "\nExpired Invoice::"
+  # puts expired_invoice
 
   # get all invoices
   filter_params = {
